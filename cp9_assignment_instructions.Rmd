@@ -1,0 +1,54 @@
+---
+title: "cp9_assignment_instructions"
+author: "Aidan O'Hara"
+date: "2023-08-24"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# CP 9 Assignment
+
+# Probability Simulation
+
+## Exercise 1 - Batting Series
+
+Write a function to model the at bat record of some baseball player during some game.
+
+Your function should take a vector of probabilities as input, the vector should give the probability that the batter is out, gets to 1st, 2nd, then 3rd, and finally hits a homerun. EX `c(0.5,0.25,0.1,0.1,0.05)`.
+
+Ensure your function will only run with an appropriate vector of probabilities. (`lenght(probs) == 5 & sum(probs) == 1`) Some rudimentary research provided that on average a player gets 2.73 at-bats per game, with a maximum of 8 at bats, last achieved by Barry McCormick in 1897. To model this, your function should make a draw from a poisson distribution, with lambda = 2.73. Use the `floor` or `ceiling` function to make your draw countable and ensure that out player is at-bat at least once and no more than 8 times.
+
+Next, use a draw from the uniform distribution and the input vector of probabilities to simulate the result of each of the player's at-bats.
+
+Return your vector of results s.t. `out = 0, 1st = 1, 2nd = 2, 3rd = 3, and homerun = 4`.
+
+EX: `1 1 0 0 0 2 4`
+
+```{r eval = FALSE}
+battingSeries <- function(bProbs){}
+```
+
+\newpage
+
+## Exercise 2
+
+Write a function called `diceRollin` that will simulate some number of sums of some number of 6-sided dice rolls.
+
+Your function should use as input:
+
+-   a vector of probabilities about a 6-sided dice, each entry the probability of landing on each side, 1,2,3,...,6, EX `evenDice <- rep(1/6, 6)`
+
+-   an integer, `sums`, indicating a number of trials, set this to 10 by default
+
+-   another integer, `numDice`, indicating how many dice rolls will make up each sum, set this to 4 by default.
+
+Your function should return a vector of sums, with length `sums`, where each entry is the sum of rolling `numDice` number of 6-sided dice with the input probabilities. 
+
+Example output: `10 9 14 13 13 15 5 8 8 15`
+
+```{r eval = FALSE}
+diceRollin <- function(diceProbs, sums = 10, numDice = 4) {}
+```
